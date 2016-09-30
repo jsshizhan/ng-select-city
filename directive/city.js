@@ -3,7 +3,8 @@ angular.module('city', []).directive('city', ["$parse","$timeout",function($pars
   function link(scope, element, attrs) {
     scope.cities = CITY_CODE.cities;
     var city,area,currentValue;
-   city= $('.city.ui.dropdown',element).dropdown({onChange:function(value, text, $choice){
+    $timeout(function(){
+      city= $('.city.ui.dropdown',element).dropdown({onChange:function(value, text, $choice){
        setValue(value,text);
        if (angular.element($choice).length > 0) {
          $timeout(function () {
@@ -14,8 +15,9 @@ angular.module('city', []).directive('city', ["$parse","$timeout",function($pars
        }
       area.dropdown('clear');
       }
-    });
+    })});
 
+    $timeout(function(){
     area = $('.area.ui.dropdown', element).dropdown({
       onChange: function (value, text, $choice) {
         setValue(value,text);
@@ -24,7 +26,7 @@ angular.module('city', []).directive('city', ["$parse","$timeout",function($pars
             scope.callback({address:text,code:value,type:'area'});
         });
       }
-    });
+    })});
 
     function setValue(value,text) {
         if(scope.code!=value && value) {
@@ -54,8 +56,11 @@ angular.module('city', []).directive('city', ["$parse","$timeout",function($pars
         }
       }
       else{
-        city.dropdown("clear");
-        area.dropdown("clear");
+        $timeout(function(){
+          city.dropdown("clear");
+          area.dropdown("clear");
+        });
+        
       }
 
     }
@@ -72,17 +77,17 @@ angular.module('city', []).directive('city', ["$parse","$timeout",function($pars
     scope: { code: '=',onlyCity:'=',callback:'&'},
     template:'<div class="city ui address search  selection  dropdown labeled"  style="margin-left:3%;width: 210px!important;min-width: 0!important;min-height: 30px!important;height:30px;padding-top: 7px!important;">'+
               '<i class="dropdown icon"></i>'+
-              '<span class="text default">市</span>'+
-              '<div class="menu">'+
-               ' <div ng-repeat="city in cities" data-value="{{city.code}}"  class="item" ng-bind="city.name"></div>'+
+             ' <span class="text default">市</span>'+
+            ' <div class="menu">'+
+             '   <div ng-repeat="city in cities" data-value="{{city.code}}"  class="item" ng-bind="city.name"></div>'+
              ' </div>'+
            ' </div>'+
            ' <div class="area address ui search selection  dropdown labeled"  style="margin-left:3%;width: 120px!important;min-width: 0!important;min-height: 30px!important;height:30px;padding-top: 7px!important;">'+
-            '  <i class="dropdown icon"></i>'+
-            '  <span class="text default">区/县</span>'+
-            '  <div class="menu">'+
-            '    <div ng-repeat="area in areas" data-value="{{area.code}}" class="item" ng-bind="area.name"></div>'+
-            '  </div>'+
-            '</div>'
+           '   <i class="dropdown icon"></i>'+
+           '   <span class="text default">区/县</span>'+
+           '   <div class="menu">'+
+           '     <div ng-repeat="area in areas" data-value="{{area.code}}" class="item" ng-bind="area.name"></div>'+
+           '   </div>'+
+           ' </div>'
   };
 }]);

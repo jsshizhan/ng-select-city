@@ -84,7 +84,7 @@ angular.module('ng-select-city', ['city']).directive('ngSelectCity',function($ht
 
     scope.searchAddress = function(){
       if(!scope.cityCode){
-        toastr.warning('ÇëÑ¡Ôñ³ÇÊÐ');
+        toastr.warning('请选择城市');
         return;
       }
       changeTab();

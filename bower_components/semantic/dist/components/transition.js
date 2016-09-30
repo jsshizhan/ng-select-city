@@ -1,5 +1,5 @@
 /*!
- * # Semantic UI 2.2.4 - Transition
+ * # Semantic UI 2.2.2 - Transition
  * http://github.com/semantic-org/semantic-ui/
  *
  *
@@ -545,6 +545,7 @@ $.fn.transition = function() {
                 animation : animation
               });
             }
+            return $.fn.transition.settings;
           },
           animationClass: function(animation) {
             var

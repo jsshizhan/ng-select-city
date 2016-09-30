@@ -545,6 +545,7 @@ $.fn.transition = function() {
                 animation : animation
               });
             }
+            return $.fn.transition.settings;
           },
           animationClass: function(animation) {
             var
