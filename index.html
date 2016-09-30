@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+<link rel="stylesheet" type="text/css" href="bower_components/semantic/dist/semantic.css">
+<link rel="stylesheet" href="bower_components/leaflet/dist/leaflet.css" />
+<link rel="stylesheet" href="ng-select-city.css" />
+
+<body ng-app="cityApp">
+	<div ng-controller="cityController" class="index">
+	
+		<ng-select-city code="citycode" detail="fromDetail"></ng-select-city>
+		
+	</div>
+</body>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/semantic/dist/semantic.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/storedb/storedb.js"></script>
+<script src="bower_components/leaflet/dist/leaflet-src.js"></script>
+<script src="bower_components/toastr/toastr.js"></script>
+<script src="leaflet-baidu.js"></script>
+
+<script src="http://api.map.baidu.com/api?v=2.0&ak=xDeWUrrwoPsU1nTHMS4MspFj2VVuGXHR"></script>
+
+<script>
+	var baidu_ak = 'xDeWUrrwoPsU1nTHMS4MspFj2VVuGXHR';
+	var app = angular.module('cityApp',['ng-select-city']);
+	app.controller('cityController',function($scope){
+		$scope.test='hello world';
+	});;
+</script>
+<script src="directive/city.js"></script>
+<script src="directive/citycode.js"></script>
+<script src="services/GeoService.js"></script>
+<script src="services/MapIconService.js"></script>
+<script src="filter/areaname.js"></script>
+<script src="ng-select-city.js"></script>

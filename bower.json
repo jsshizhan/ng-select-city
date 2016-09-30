@@ -1,0 +1,21 @@
+{
+  "name": "ng-citycode",
+  "main": "ng-citycode.js",
+  "authors": [
+    "sz",
+    "tyy"
+  ],
+  "description": "城市控件",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "jquery": "~3.1.1",
+    "angular": "~1.5.8",
+    "storedb": "~0.1.2",
+    "leaflet": "~1.0.0",
+    "semantic": "~2.2.4",
+    "toastr": "~2.1.3"
+  }
+}

@@ -1,0 +1,25 @@
+.addressChoice .content .commonHeightBoxScroll{
+    height: 400px;
+    overflow: hidden;
+    margin-bottom: 0  !important;
+}
+.addressChoice .ui.table .label{
+    background: rgb(40,151,255);
+    color: #fff;
+    border-radius: 50%;
+}
+
+.addressChoice .ui.table .label .red{
+    background: red;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.addressChoice .sixteen .ui.button{
+  width: 100px;
+  line-height: 30px;
+  padding: 0;
+}
+.choose{
+    background: #CCCCCC;
+}
