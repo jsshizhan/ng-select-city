@@ -101,7 +101,7 @@ angular.module('ng-select-city', ['city']).directive('ngSelectCity',function($ht
             icon: icon
           });
           marker.content = result.name;
-          marker.uid = result.uid;
+          marker.uid = result.uid = result.uid||new Date().getTime();
           marker.on('click',function(e){
             selectMarker = e.target;
             scope.selectAddress(selectMarker.uid);
