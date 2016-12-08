@@ -96,12 +96,13 @@ angular.module('ng-select-city', ['city']).directive('ngSelectCity',function($ht
         }
         scope.searchResult = results;
         scope.map.setView([results[0].location.lat, results[0].location.lng], 16);
+        var index = 0;
         results.forEach(function(result){
           var marker = L.marker([result.location.lat,result.location.lng], {
             icon: icon
           });
           marker.content = result.name;
-          marker.uid = result.uid = result.uid||new Date().getTime();
+          marker.uid = result.uid = result.uid||index++;
           marker.on('click',function(e){
             selectMarker = e.target;
             scope.selectAddress(selectMarker.uid);
